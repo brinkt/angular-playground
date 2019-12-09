@@ -1,0 +1,17 @@
+<div *ngIf="tilesArray" class="row">
+  <div class="col-sm-6 col-md-4">
+    <div *ngFor="let obj0 of tilesArray[0]; let i0 = index">
+      <app-page-tile [page]="tilesArray[0][i0]" (pageEvent)="pageEvent.emit($event)"></app-page-tile>
+    </div>
+  </div>
+  <div class="col-sm-6 col-md-4">
+    <div *ngFor="let obj1 of tilesArray[1]; let i1 = index">
+      <app-page-tile [page]="tilesArray[1][i1]" (pageEvent)="pageEvent.emit($event)"></app-page-tile>
+    </div>
+  </div>
+  <div class="col-sm-6 col-md-4">
+    <div *ngFor="let obj2 of tilesArray[2]; let i2 = index">
+      <app-page-tile [page]="tilesArray[2][i2]" (pageEvent)="pageEvent.emit($event)"></app-page-tile>
+    </div>
+  </div>
+</div>

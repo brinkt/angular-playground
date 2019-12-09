@@ -1,0 +1,16 @@
+<div class="mar-l10" style="float: right;">
+  <div class="btn-group mar-b10" role="group">
+    <button type="button" class="btn btn-default" (click)="setType('tile')"
+      [disabled]="viewType == 'tile'">
+      <span class="glyphicon glyphicon-th-large"></span> Tile
+    </button>
+    <button type="button" class="btn btn-default" (click)="setType('table')"
+      [disabled]="viewType == 'table'">
+      <span class="glyphicon glyphicon-list"></span> Table
+    </button>
+    <button type="button" class="btn btn-default" (click)="setType('map')"
+      [disabled]="viewType == 'map'" *ngIf="includeMap">
+      <span class="glyphicon glyphicon-globe"></span> Map
+    </button>
+  </div>
+</div>

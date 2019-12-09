@@ -1,0 +1,55 @@
+<div id="builderControls" class="mar-b20" *ngIf="viewType == 'edit'">
+  <span>Layout</span>
+  <form #f="ngForm" style="display: inline-block;">
+    <select class="form-control" name="layout" #layout="ngModel"
+      [(ngModel)]="objects.layout" (change)="changeLayout($event)">
+      <option *ngFor="let l of layouts" [value]="l">{{l}}</option>
+    </select>
+  </form>
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-default"
+      (click)="addText('h1', 'Heading 1')">h1</button>
+    <button type="button" class="btn btn-default"
+      (click)="addText('h2', 'Heading 2')">h2</button>
+    <button type="button" class="btn btn-default"
+      (click)="addText('h3', 'Heading 3')">h3</button>
+    <button type="button" class="btn btn-default"
+      (click)="addText('p', 'Paragraph')">p</button>
+  </div>
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-default" (click)="addQuote()">Quote</button>
+    <button type="button" class="btn btn-default"
+      (click)="addYoutube('0AxwdN-Dtko')">Youtube</button>
+  </div>
+</div>
+
+<div class="row" *ngIf="objects && viewType == 'edit'">
+  <div id="col{{i}}" class="dragEdit {{group.css}}" *ngFor="let group of objects.data; let i=index"
+    [dragula]="'nested-bag'" [dragulaModel]="group.elements" [dragulaOptions]="dragulaOptions">
+    <div class="dragItem" *ngFor="let item of group.elements; let z=index">
+      <div *ngIf="!isComponent(item)">
+        <app-content-element [(model)]="objects.data[i].elements[z]"
+          [viewType]="'edit'"></app-content-element>
+      </div>
+      <div *ngIf="isComponent(item)">
+        <span class="handle"><span class="glyphicon glyphicon-move"></span></span>
+        <div class="contentElement">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row" *ngIf="objects && viewType == 'show'">
+  <div id="col{{i}}" class="{{group.css}}" *ngFor="let group of objects.data; let i=index">
+    <div *ngFor="let item of group.elements">
+      <div *ngIf="!isComponent(item)">
+        <app-content-element [model]="item" [viewType]="'show'"></app-content-element>
+      </div>
+      <div *ngIf="isComponent(item)">
+        <div class="contentElement">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

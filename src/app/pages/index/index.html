@@ -1,0 +1,24 @@
+<div class="container-fluid" *ngIf="overlay == 'index'">
+  <h1 class="top-heading" style="float: left;">Pages</h1>
+  <app-shared-view-types [(viewType)]="viewType"></app-shared-view-types>
+  <div *ngIf="authenticated" class="mar-l10" style="float: right;">
+    <a class="btn btn-default vab" (click)="processObject(['new'])">
+      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> New
+    </a>
+  </div>
+
+  <div class="mar-t10" style="clear: both;">
+    <div *ngIf="viewType == 'tile' && pages">
+      <app-page-tiles [pages]="pages" (pageEvent)="processObject($event)"></app-page-tiles>
+    </div>
+    <div *ngIf="viewType == 'table' && pages">
+      <app-page-table [pages]="pages" (pageEvent)="processObject($event)"></app-page-table>
+    </div>
+  </div>
+</div>
+
+<app-page-show [page]="page" (pageEvent)="processObject($event)" [overlay]="overlay"
+  *ngIf="overlay == 'show'"></app-page-show>
+
+<app-page-form [page]="page" (pageEvent)="processObject($event)" [overlay]="overlay"
+  *ngIf="['new', 'edit'].includes(overlay)"></app-page-form>

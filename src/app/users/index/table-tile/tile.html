@@ -1,0 +1,15 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div>{{user.name}}</div>
+    <div class="mar-t5">{{user.email}}</div>
+  </div>
+  <div class="panel-footer user-tile">
+    <div class="user-link">
+      <a routerLink="/user/{{user.username}}">{{user.username}}</a>
+    </div>
+    <div class="user-controls">
+      <app-user-table-tile-controls-component [user]="user"
+        (userEvent)="userEvent.emit($event)"></app-user-table-tile-controls-component>
+    </div>
+  </div>
+</div>

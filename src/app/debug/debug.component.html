@@ -1,0 +1,18 @@
+<div class="container">
+  <h1 class="top-heading">Debug</h1>
+  <div class="mar-t20">
+    <button class="btn btn-default" type="submit" (click)="resetLocalStorage()">Reset Storage</button>
+  </div>
+  <div *ngIf="jwtHead || jwtObj">
+    <h2>Jwt (JSON Web Token)</h2>
+    <p *ngIf="jwtHead"><b>Header</b><br />{{jwtHead}}</p>
+    <p *ngIf="jwtObj" style="word-wrap: break-word;"><b>Body</b><br />{{jwtObj}}</p>
+    <p *ngIf="jwtObj" style="word-wrap: break-word;"><b>Validation Hash</b><br />{{jwtHash}}</p>
+  </div>
+  <div *ngIf="obj">
+    <div *ngFor="let key of keys">
+      <h3>{{key}}</h3>
+      <p style="word-wrap: break-word;">{{obj[key]}}
+    </div>
+  </div>
+</div>

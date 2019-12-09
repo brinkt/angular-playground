@@ -1,0 +1,13 @@
+<!-- if authenticated & not same user -->
+<span *ngIf="authenticated && user.id != authUser.id">
+  <!-- unfollow user -->
+  <a *ngIf="user.followed" class="btn btn-default btn-sm" title="Unfollow user"
+    (click)="userEvent.emit([$event, 'unfollow', user])">
+    <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+  </a>
+  <!-- follow user -->
+  <a *ngIf="!user.followed" class="btn btn-default btn-sm" title="Follow user"
+    (click)="userEvent.emit([$event, 'follow', user])">
+    <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>
+  </a>
+</span>

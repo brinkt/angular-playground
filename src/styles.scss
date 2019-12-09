@@ -1,0 +1,211 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import 'assets/mixins';
+
+html { 
+  height: 100%;
+  overflow: -moz-scrollbars-vertical;
+  overflow-y: scroll;
+}
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #1e3948;
+  height: 100%;
+  background: #222222;
+  background: -moz-radial-gradient(center, ellipse cover,  #222222 0%, #222222 50%, #111111 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#222222),
+    color-stop(50%,#222222), color-stop(100%,#111111));
+  background: -webkit-radial-gradient(center, ellipse cover,  #222222 0%,#222222 50%,#111111 100%);
+  background: -o-radial-gradient(center, ellipse cover,  #222222 0%,#222222 50%,#111111 100%);
+  background: -ms-radial-gradient(center, ellipse cover,  #222222 0%,#222222 50%,#111111 100%);
+  background: radial-gradient(ellipse at center,  #222222 0%,#222222 50%,#111111 100%);
+  background-size: 4px 4px;
+}
+
+#yield {
+  position: relative;
+  min-height: 100%;
+  padding: 0 0 30px 0;
+  max-width: 1000px;
+  margin: 0 auto 0 auto;
+  background: #fff;
+}
+.container { max-width: 1000px; }
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 10px 0 10px 0;
+}
+
+#loading-spinner {
+  position: absolute;
+  top: 40%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+.loading-text {
+  margin-left: 5px; vertical-align: top; font-size: 18px;
+}
+
+.gly-spin {
+  -webkit-animation: spin 2s infinite linear;
+  -moz-animation: spin 2s infinite linear;
+  -o-animation: spin 2s infinite linear;
+  animation: spin 2s infinite linear;
+}
+@-moz-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(359deg);
+  }
+}
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+  }
+}
+@-o-keyframes spin {
+  0% {
+    -o-transform: rotate(0deg);
+  }
+  100% {
+    -o-transform: rotate(359deg);
+  }
+}
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+
+.bor-top { 
+  margin-top: 20px;
+  padding-top: 10px;
+  border-top: 1px solid #ccc; }
+
+.is-right { text-align: right; }
+
+.mar-t5 { margin-top: 5px; }
+.mar-t10 { margin-top: 10px; }
+.mar-l10 { margin-left: 10px; }
+.pad-t10 { padding-top: 10px; }
+.mar-t20 { margin-top: 20px; }
+.mar-b10 { margin-bottom: 10px; }
+.mar-b20 { margin-bottom: 20px; }
+
+.input-group { width: 100%; }
+
+.smaller { font-size: 12px; }
+
+.top-heading { margin-top: 0; }
+.alert-form {
+  padding: 10px 10px 5px 10px;
+  margin-bottom: 0;
+  margin-top: -5px;
+}
+
+.ib { display: inline-block; }
+.gt { display: table; width: 100%; }
+.gtc { display: table-cell; }
+
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948; /* green */
+}
+.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442; /* red */
+}
+
+.navbar-collapse { padding-top: 10px; }
+.navbar-nav { margin: 0 -15px; }
+.panel-footer {
+  padding: 0;
+  min-height: 51px; }
+
+#toastContainer {
+  position: fixed;
+  top: 0;
+  margin: 10px;
+  z-index: 10;
+}
+
+.dropdown-menu .divider { display: none; }
+.navbar-nav .dropdown .dropdown-menu li { padding: 7px 0; }
+
+.user-img-sm {
+  display: inline-block;
+  vertical-align: bottom;
+  border: 1px solid #bbb;
+  margin-right: 5px;
+  background-color: #fff;
+  padding: 2px;
+  @include rounded-top-corners(2px);
+  @include rounded-bottom-corners(2px);
+}
+
+.user-tile {
+  position: relative;
+}
+.user-tile .user-controls {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+.user-tile .user-link {
+  position: absolute;
+  bottom: 15px;
+  left: 10px;
+}
+
+
+/* ----------------------------------------------------------- */
+/* screen-sm 768px */
+/* ----------------------------------------------------------- */
+
+@media (min-width: 768px){
+
+.navbar-nav { margin: 0; }
+.navbar-collapse { padding: 0; }
+.dropdown-menu .divider { display: block; }
+.navbar-nav .dropdown .dropdown-menu li { padding:0; }
+
+}
+
+/* ----------------------------------------------------------- */
+/* screen-lg 1200px */
+/* ----------------------------------------------------------- */
+
+@media (min-width: 1200px){
+
+#toastContainer {
+  margin: 0;
+  padding: 10px 15px;
+  position: absolute;
+  top: 170px;
+  right: 20px;
+  max-width: 50%;
+}
+
+.dropdownmenu {
+  z-index: 100;
+}
+
+.panel-small {
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+}

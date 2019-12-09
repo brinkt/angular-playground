@@ -1,0 +1,24 @@
+<div class="container-fluid">
+  <div class="panel panel-default panel-small">
+    <div class="panel-heading">
+      <h3 class="panel-title">{{title || 'Token Helper'}}</h3>
+    </div>
+    <div class="panel-body">
+      <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+        <div class="input-group">
+          <label for="token">Token</label>
+          <input type="text" name="token" class="form-control" required
+            minlength="32" maxlength="32" [(ngModel)]="tokenVal" #token="ngModel">
+        </div>
+        <app-form-error-message [control]="token" [value]="token.value"
+          [messages]="validationMessages"></app-form-error-message>
+        <div class="mar-t10">
+          <button class="btn btn-default" type="submit" [disabled]="!f.form.valid">Submit</button>
+        </div>
+      </form>
+    </div>
+    <div class="panel-footer">
+      <app-auth-links></app-auth-links>
+    </div>
+  </div>
+</div>

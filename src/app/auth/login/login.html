@@ -1,0 +1,36 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-1 col-md-4 col-md-offset-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Login</h3>
+        </div>
+        <div class="panel-body">
+          <form name="login" role="form" (ngSubmit)="onSubmit()" #loginForm="ngForm">
+            <div class="input-group">
+              <label for="login">Login</label>
+              <input type="text" name="login" class="form-control" required
+                [(ngModel)]="user.login" #login="ngModel"
+                placeholder="Username or E-mail Address">
+            </div>
+            <div class="input-group mar-t10">
+              <label for="password">Password</label>
+              <input type="password" name="password" class="form-control" required
+                [(ngModel)]="user.password" #password="ngModel">
+            </div>
+            <div class="input-group mar-t10">
+              <input type="checkbox" name="remember" [(ngModel)]="user.remember" #remember="ngModel">
+              Remember me?
+            </div>
+            <div class="mar-t10">
+              <button class="btn btn-default" type="submit" [disabled]="!loginForm.form.valid">Login</button>
+            </div>
+          </form>
+        </div>
+        <div class="panel-footer">
+          <app-auth-links></app-auth-links>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

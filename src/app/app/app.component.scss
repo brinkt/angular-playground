@@ -1,0 +1,66 @@
+@import '../../assets/mixins';
+
+/* ----------------------------------------------------------- */
+/* all screen sizes */
+/* ----------------------------------------------------------- */
+
+.container {
+  max-width: 100%;
+  @include rounded-bottom-corners(3px);
+  @include rounded-top-corners(3px);
+}
+
+/* ----------------------------------------------------------- */
+/* screen-sm 768px */
+/* ----------------------------------------------------------- */
+
+@media (min-width: 768px){
+
+}
+
+/* ----------------------------------------------------------- */
+/* screen-lg 1200px */
+/* ----------------------------------------------------------- */
+
+@media (min-width: 1200px){
+
+.navbar {
+  border-radius: 0;
+}
+
+.navbar .navbar-nav {
+  display: inline-block;
+  float: none;
+  vertical-align: top;
+}
+
+.navbar-header { float: none; }
+
+.navbar-collapse {
+  padding-left: 0;
+  text-align: center;
+}
+
+.navbar-default {
+  border: none;
+  border-bottom: 1px solid #e7e7e7;
+}
+
+.navbar-default .navbar-brand {
+  height: 110px;
+  line-height: unset;
+  display: block;
+  width: 100%;
+  float: none;
+  padding: 10px 0 0 0;
+  font-size: 64px;
+  text-align: center;
+  color: rgba(160,160,160,1);
+  text-shadow: 1px 1px 0 rgba(180,180,180,0.6), -1px -1px 1px rgba(0,0,0,0.67);
+}
+
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+  color: rgba(160,160,160,1);
+}
+
+}

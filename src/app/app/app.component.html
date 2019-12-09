@@ -1,0 +1,44 @@
+<nav class="navbar navbar-default">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+      data-target="#navbar-c1" aria-expanded="false" #navToggle>
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#">angular-playground</a>
+  </div>
+
+  <div class="collapse navbar-collapse" id="navbar-c1">
+    <app-auth-nav-component></app-auth-nav-component>
+
+    <ul class="nav navbar-nav navbar-left">
+      <li><a routerLink="/" routerLinkActive="active">Home</a></li>
+      <li><a routerLink="/pages" routerLinkActive="active">Pages</a></li>
+      <li><a routerLink="/users" routerLinkActive="active">Users</a></li>
+      <li><a routerLink="/debug" routerLinkActive="active">Debug</a></li>
+    </ul>
+
+  </div>
+</nav>
+
+<app-toast></app-toast>
+<router-outlet></router-outlet>
+
+<div style="height: 20px;"></div>
+<div id="footer">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-1 col-md-6">
+        &copy; 2016-2017 Taylor Brink &lt;taylor@nanobasis.com&gt;
+      </div>
+      <div class="col-sm-1 col-md-6 is-right">
+        Source:
+        <a href="https://github.com/brinkt/angular-playground" target="_blank">
+          https://github.com/brinkt/angular-playground
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

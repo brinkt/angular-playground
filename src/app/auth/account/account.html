@@ -1,0 +1,40 @@
+<div class="container-fluid" protected>
+  <div class="row">
+    <div class="col-sm-1 col-md-6 col-md-offset-1">
+      <h1 class="top-heading">Account Settings</h1>
+    </div>
+  </div>
+  <div class="row mar-t10">
+    <div class="col-sm-1 col-md-6 col-md-offset-1">
+      <app-auth-account-form [user]="user"></app-auth-account-form>
+      <div class="panel panel-default mar-t20">
+        <div class="panel-heading">
+          <h3 class="panel-title">Cancel Account</h3>
+        </div>
+        <div class="panel-body">
+          <div>Are you sure you want to cancel your account?</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-1 col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Change Username</h3>
+        </div>
+        <div class="panel-body">
+          <form name="changeUsername" role="form" (ngSubmit)="changeUsername()" #usernameForm="ngForm">
+            <app-auth-username-form [parentForm]="usernameForm" [(username)]="user.new_username"></app-auth-username-form>
+            <div class="mar-t10">
+              <button class="btn btn-default" type="submit" [disabled]="!usernameForm.valid">
+                Change
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="mar-t20">
+        <app-auth-password-change [user]="user"></app-auth-password-change>
+      </div>
+    </div>
+  </div>
+</div>

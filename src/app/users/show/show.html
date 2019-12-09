@@ -1,0 +1,45 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-6 col-md-4">
+      <h1 class="top-heading">{{user.name}}</h1>
+      <p>Email: {{user.email}}</p>
+      <p>Username: {{user.username}}</p>
+    </div>
+    <div class="col-sm-6 col-md-4">
+      <h3 class="top-heading">Following ({{following.length || 0}})</h3>
+      <table class="table table-striped" *ngIf="following && following.length > 0">
+        <thead><tr>
+          <th>Username</th>
+          <th>Name</th>
+          <th></th>
+        </tr></thead>
+        <tbody>
+          <tr *ngFor="let user of following">
+            <td><a routerLink="/user/{{user.username}}">{{user.username}}</a></td>
+            <td>{{user.name}}</td>
+            <td class="is-right">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-sm-6 col-md-4">
+      <h3 class="top-heading">Followers ({{followers.length || 0}})</h3>
+      <table class="table table-striped" *ngIf="followers && followers.length > 0">
+        <thead><tr>
+          <th>Username</th>
+          <th>Name</th>
+          <th></th>
+        </tr></thead>
+        <tbody>
+          <tr *ngFor="let user of followers">
+            <td><a routerLink="/user/{{user.username}}">{{user.username}}</a></td>
+            <td>{{user.name}}</td>
+            <td class="is-right">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

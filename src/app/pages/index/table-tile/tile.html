@@ -1,0 +1,16 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div>{{page.title}}</div>
+  </div>
+  <div class="panel-footer page-tile" style="padding: 5px; min-height: inherit;">
+    <div style="float: left;">
+      <a href="/{{page.path}}" (click)="$event.preventDefault(); pageEvent.emit(['show', page])">
+        /{{page.path}}
+      </a>
+    </div>
+    <div class="is-right">
+      <app-page-table-tile-controls-component [page]="page"
+        (pageEvent)="pageEvent.emit($event)"></app-page-table-tile-controls-component>
+    </div>
+  </div>
+</div>

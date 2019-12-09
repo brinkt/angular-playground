@@ -1,0 +1,17 @@
+<table class="table table-striped" *ngIf="pages && pages.length > 0">
+  <thead><tr>
+    <th>Title</th>
+    <th>Path</th>
+    <th></th>
+  </tr></thead>
+  <tbody>
+    <tr *ngFor="let page of pages">
+      <td><a routerLink="/{{page.path}}">{{page.title}}</a></td>
+      <td>/{{page.path}}</td>
+      <td class="is-right">
+        <app-page-table-tile-controls-component [page]="page"
+          (pageEvent)="pageEvent.emit($event)"></app-page-table-tile-controls-component>
+      </td>
+    </tr>
+  </tbody>
+</table>

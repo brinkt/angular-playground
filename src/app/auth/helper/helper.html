@@ -1,0 +1,33 @@
+<div class="container-fluid">
+  <div class="panel panel-default panel-small">
+    <div class="panel-heading">
+      <h3 class="panel-title">{{title || 'Auth Helper'}}</h3>
+    </div>
+    <div class="panel-body">
+      <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+        <div class="input-group">
+          <label for="email">E-mail Address</label>
+          <input type="text" name="email" class="form-control" required email="true"
+            ngModel #email="ngModel">
+        </div>
+        <app-form-error-message [control]="email" [value]="email.value"
+          [messages]="validationMessages"></app-form-error-message>
+        <div class="mar-t10">
+          <button class="btn btn-default" type="submit" [disabled]="!f.form.valid">Send</button>
+        </div>
+      </form>
+      <div *ngIf="route == '/auth/password/instructions'" class="bor-top">
+        <a routerLink="/auth/token/password" routerLinkActive="active">Already have password reset token?</a>
+      </div>
+      <div *ngIf="route == '/auth/unlock/instructions'" class="bor-top">
+        <a routerLink="/auth/token/unlock" routerLinkActive="active">Already have account unlock token?</a>
+      </div>
+      <div *ngIf="route == '/auth/confirm/instructions'" class="bor-top">
+        <a routerLink="/auth/token/email" routerLinkActive="active">Already have email confirmation token?</a>
+      </div>
+    </div>
+    <div class="panel-footer">
+      <app-auth-links></app-auth-links>
+    </div>
+  </div>
+</div>

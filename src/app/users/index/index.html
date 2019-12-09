@@ -1,0 +1,13 @@
+<div class="container-fluid">
+  <h1 class="top-heading" style="float: left;">Users</h1>
+  <app-shared-view-types [(viewType)]="viewType"></app-shared-view-types>
+
+  <div class="mar-t10" style="clear: both;">
+    <div *ngIf="viewType == 'tile' && users">
+      <app-user-tiles [users]="users" (userEvent)="processObject($event)"></app-user-tiles>
+    </div>
+    <div *ngIf="viewType == 'table' && users">
+      <app-user-table [users]="users" (userEvent)="processObject($event)"></app-user-table>
+    </div>
+  </div>
+</div>

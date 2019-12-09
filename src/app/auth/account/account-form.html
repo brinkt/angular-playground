@@ -1,0 +1,50 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Update Account Information</h3>
+  </div>
+  <div class="panel-body">
+    <form name="account" role="form" (ngSubmit)="onSubmit()" #accountForm="ngForm">
+      <div class="row">
+        <div class="col-xs-7 col-md-8">
+          <div class="input-group">
+            <label for="name">Your Name</label>
+            <input type="text" name="name" class="form-control" required
+              [(ngModel)]="user.name" #name="ngModel">
+          </div>
+          <app-form-error-message [control]="name" [value]="name.value"
+            [messages]="validationMessages"></app-form-error-message>
+        </div>
+        <div class="col-xs-5 col-md-4">
+          <div class="input-group">
+            <label for="postal_code">Postal Code</label>
+            <input type="text" name="postal_code" class="form-control"
+              [(ngModel)]="user.postal_code" #postal_code="ngModel">
+          </div>
+        </div>
+      </div>
+      <div class="input-group mar-t20">
+        <label for="email">E-mail Address</label>
+        <input type="email" name="email" class="form-control" required email="true"
+          [(ngModel)]="user.email" #email="ngModel" (ngModelChange)="email_confirm.control.updateValueAndValidity()">
+      </div>
+      <app-form-error-message [control]="email" [value]="email.value"
+        [messages]="validationMessages"></app-form-error-message>
+      <div class="input-group mar-t10">
+        <label for="email">E-mail Address Confirmation*</label>
+        <input type="email" name="email_confirm" class="form-control"
+          [(ngModel)]="user.email_confirm" #email_confirm="ngModel" equalTo="{{email.value}}">
+      </div>
+      <app-form-error-message [control]="email_confirm" [value]="email_confirm.value"
+        [messages]="validationMessages"></app-form-error-message>
+      <div class="smaller mar-t5">
+        * Leave blank if do not want to change.  A change requires confirmation via e-mail.
+        Account will be restricted until this is completed.
+      </div>
+      <div class="mar-t20">
+        <button class="btn btn-default" type="submit" [disabled]="!accountForm.dirty || !accountForm.valid">
+          Update
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

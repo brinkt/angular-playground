@@ -1,0 +1,23 @@
+<ul class="nav nav-pills nav-stacked">
+  <li *ngIf="windowPath() != '/auth/login'">
+    <a href="/auth/login" (click)="nav($event, '/auth/login')">Login</a>
+  </li>
+    <li *ngIf="windowPath() != '/auth/register'">
+      <a href="/auth/register" (click)="nav($event, '/auth/register')">Register</a>
+    </li>
+  <li *ngIf="windowPath() != '/auth/password/instructions'">
+    <a href="/auth/password/instructions" (click)="nav($event, '/auth/password/instructions')">
+      Forgot your password?
+    </a>
+  </li>
+  <li *ngIf="windowPath() != '/auth/confirm/instructions'">
+    <a href="/auth/confirm/instructions" (click)="nav($event, '/auth/confirm/instructions')">
+      Resend confirmation instructions
+    </a>
+  </li>
+  <li *ngIf="windowPath() != '/auth/unlock/instructions'">
+    <a href="/auth/unlock/instructions" (click)="nav($event, '/auth/unlock/instructions')">
+      Resend unlock instructions
+    </a>
+  </li>
+</ul>

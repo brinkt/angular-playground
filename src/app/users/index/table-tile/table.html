@@ -1,0 +1,19 @@
+<table class="table table-striped" *ngIf="users && users.length > 0">
+  <thead><tr>
+    <th>Username</th>
+    <th>Name</th>
+    <th>E-mail</th>
+    <th></th>
+  </tr></thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td><a routerLink="/user/{{user.username}}">{{user.username}}</a></td>
+      <td>{{user.name}}</td>
+      <td>{{user.email}}</td>
+      <td class="is-right">
+        <app-user-table-tile-controls-component [user]="user"
+          (userEvent)="userEvent.emit($event)"></app-user-table-tile-controls-component>
+      </td>
+    </tr>
+  </tbody>
+</table>

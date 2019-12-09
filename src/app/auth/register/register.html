@@ -1,0 +1,64 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Register</h3>
+        </div>
+        <div class="panel-body">
+          <form name="register" role="form" (ngSubmit)="onSubmit()" #registerForm="ngForm">
+
+            <div class="input-group">
+              <label for="name">Your Name</label>
+              <input type="text" name="name" class="form-control" autofocus="true" required
+                [(ngModel)]="user.name" #name="ngModel">
+            </div>
+            <app-form-error-message [control]="name" [value]="name.value"
+              [messages]="validationMessages"></app-form-error-message>
+
+            <div class="mar-t20">
+              <app-auth-username-form [parentForm]="registerForm" [(username)]="user.username"></app-auth-username-form>
+            </div>
+
+            <div class="mar-t20">
+              <div class="input-group mar-t10">
+                <label for="email">E-mail Address</label>
+                <input type="email" name="email" class="form-control" required email="true"
+                  [(ngModel)]="user.email" #email="ngModel" equalTo="{{email_confirm.value}}">
+              </div>
+              <app-form-error-message [control]="email" [value]="email.value"
+                [messages]="validationMessages"></app-form-error-message>
+              <div class="input-group mar-t10">
+                <label for="email_confirm">E-mail Address Confirmation</label>
+                <input type="email" name="email_confirm" class="form-control" required email="true"
+                  [(ngModel)]="user.email_confirm" #email_confirm="ngModel" equalTo="{{email.value}}">
+              </div>
+              <app-form-error-message [control]="email_confirm" [value]="email_confirm.value"
+                [messages]="validationMessages"></app-form-error-message>
+            </div>
+            <div class="mar-t20">
+              <div class="input-group mar-t10">
+                <label for="password">Password</label>
+                <input type="password" name="password" class="form-control" required
+                  [(ngModel)]="user.password" #password="ngModel">
+              </div>
+              <div class="input-group mar-t10">
+                <label for="password_confirm">Password Confirmation</label>
+                <input type="password" name="password_confirm" class="form-control" required
+                  [(ngModel)]="user.password_confirm" #password_confirm="ngModel" equalTo="{{password.value}}">
+              </div>
+              <app-form-error-message [control]="password_confirm" [value]="password_confirm.value"
+                [messages]="validationMessages"></app-form-error-message>
+            </div>
+            <div class="mar-t20">
+              <button class="btn btn-default" type="submit" [disabled]="!registerForm.valid">Register</button>
+            </div>
+          </form>
+        </div>
+        <div class="panel-footer">
+          <app-auth-links></app-auth-links>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
